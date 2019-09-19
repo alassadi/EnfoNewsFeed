@@ -1,0 +1,245 @@
+/*PEN STYLES*/
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body of UI cards */
+body {
+    background: #f1f1f1;
+}
+
+/* Style the UI cards */
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    box-shadow: 0 3px 7px -1px rgba(0, 0, 0, .1);
+    margin-bottom: 1.6%;
+    background: #fff;
+    line-height: 1.4;
+    font-family: sans-serif;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+
+/* Style the image with a slight rotation when hover*/
+.blog-card:hover .photo {
+    transform: scale(1.3) rotate(3deg);
+}
+
+.blog-card .meta {
+    position: relative;
+    z-index: 0;
+    height: 200px;
+}
+
+/* Styling the photos in the UI card*/
+.blog-card .photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.2s;
+}
+
+/* Style the details part of the UI cards that has the news author and date */
+.blog-card .details,
+.blog-card .details ul {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+}
+
+.blog-card .details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    margin: auto;
+    transition: left 0.2s;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Style to hide the author and published at under the left part of the card*/
+.blog-card .description {
+    padding: 1rem;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+/* Styling the title section in the UI cards*/
+.blog-card .description h1 {
+    font-family: Poppins, sans-serif;
+}
+
+.blog-card .description h1 {
+    line-height: 1;
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+/* Styling the Read More Link*/
+.blog-card .description .read-more {
+    text-align: right;
+}
+
+/* Styling the Read More link */
+.blog-card .description .read-more a {
+    color: #0071BC;
+    display: inline-block;
+    position: relative;
+}
+
+/* Styling with a blue line between title and description */
+.blog-card p {
+    position: relative;
+    margin: 1rem 0 0;
+}
+
+.blog-card p:first-of-type {
+    margin-top: 1.25rem;
+}
+
+.blog-card p:first-of-type:before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background: #0071BC;
+    width: 35px;
+    top: -0.75rem;
+    border-radius: 3px;
+}
+
+/* Change the color on the picture when mouse-over */
+.blog-card:hover .details {
+    left: 0%;
+}
+
+/* Add media queries for responsiveness - when the screen is 640px wide or less, stack the cards on top of each other */
+@media (min-width: 640px) {
+    .blog-card {
+        flex-direction: row;
+        max-width: 90%;
+    }
+
+    .blog-card .meta {
+        flex-basis: 40%;
+        height: auto;
+    }
+
+    .blog-card .description {
+        flex-basis: 60%;
+    }
+
+    .blog-card .description:before {
+        transform: skewX(-3deg);
+        content: "";
+        background: #fff;
+        width: 30px;
+        position: absolute;
+        left: -10px;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .blog-card.alt {
+        flex-direction: row-reverse;
+        max-width: 90%;
+    }
+
+    .blog-card.alt .description:before {
+        left: inherit;
+        right: -10px;
+        transform: skew(3deg);
+    }
+
+    .blog-card.alt .details {
+        padding-left: 25px;
+    }
+
+    /* adding the search textbox here to match the behavior of the UI cards */
+    #search {
+        margin: auto auto;
+    }
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 10px 5%;
+}
+
+/* Style the header links */
+.header a {
+    float: left;
+    color: black;
+    text-align: left;
+    padding: 0px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 1px;
+}
+
+/* Style the logo image*/
+
+.header img {
+    width: 45px;
+    height: 45px;
+    background-size: contain;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+    background-color: #0071bc;
+    color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+    float: right;
+}
+
+/* Style the search bar*/
+#search {
+    width: 40%;
+    height: 35px;
+    margin: auto 5%;
+    display: block;
+}
+
+/* Add media queries for responsiveness - when the screen is 640px wide or less, stack the links on top of each other */
+@media screen and (max-width: 640px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+
+    /* Adding the search here to match the behavior of the header*/
+    #search {
+        margin: auto 0%;
+    }
+}
